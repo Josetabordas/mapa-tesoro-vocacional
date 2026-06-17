@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Mapa del Tesoro Vocacional</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="parchment-texture"></div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">No es una pregunta de carrera. Es una búsqueda de tesoro.</p>
+      <h1 class="hero-title">¿Qué quieres ser<br>cuando grande?</h1>
+      <p class="hero-sub">La mayoría no lo sabe. Y está bien. <br>Existe una pregunta mejor — son cuatro, en realidad — escondidas a lo largo de este mapa.</p>
+      <a href="#mapa" class="cta">Desenrollar el mapa ↓</a>
+    </div>
+    <svg class="hero-compass" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="60" cy="60" r="3" fill="currentColor"/>
+      <path d="M60 10 L66 60 L60 110 L54 60 Z" fill="currentColor" opacity="0.85"/>
+      <text x="60" y="22" text-anchor="middle" class="compass-n">N</text>
+    </svg>
+  </header>
+
+  <main id="mapa" class="map-section">
+    <p class="map-intro">
+      El tesoro no es una carrera específica, sino el descubrimiento de tus talentos e intereses.
+      Visita las cuatro estaciones. Cada respuesta correcta te entrega una coordenada.
+    </p>
+
+    <div class="trail" id="trail">
+
+      <section class="station" data-station="1">
+        <div class="station-marker">
+          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
+        </div>
+        <div class="station-card">
+          <p class="station-label">Estación I — Lo que enciende</p>
+          <h2>¿Qué te apasiona?</h2>
+          <p class="station-copy">No lo que "deberías" disfrutar. Lo que te hace perder la noción del tiempo cuando lo haces.</p>
+          <button class="dig-btn" data-coord="N 14°">Excavar aquí</button>
+          <p class="coord-reveal" hidden>Coordenada hallada: <span>N 14°</span></p>
+        </div>
+      </section>
+
+      <section class="station" data-station="2">
+        <div class="station-marker">
+          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
+        </div>
+        <div class="station-card">
+          <p class="station-label">Estación II — Tu ventaja natural</p>
+          <h2>¿Qué haces bien?</h2>
+          <p class="station-copy">Las cosas que te salen con una facilidad que a otros les cuesta. Ahí hay una pista.</p>
+          <button class="dig-btn" data-coord="E 27°">Excavar aquí</button>
+          <p class="coord-reveal" hidden>Coordenada hallada: <span>E 27°</span></p>
+        </div>
+      </section>
+
+      <section class="station" data-station="3">
+        <div class="station-marker">
+          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
+        </div>
+        <div class="station-card">
+          <p class="station-label">Estación III — El horizonte</p>
+          <h2>¿Qué te gustaría aprender?</h2>
+          <p class="station-copy">No lo que ya sabes hacer. Lo que te llama la atención aunque todavía no domines.</p>
+          <button class="dig-btn" data-coord="N 09°">Excavar aquí</button>
+          <p class="coord-reveal" hidden>Coordenada hallada: <span>N 09°</span></p>
+        </div>
+      </section>
+
+      <section class="station" data-station="4">
+        <div class="station-marker">
+          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
+        </div>
+        <div class="station-card">
+          <p class="station-label">Estación IV — El propósito</p>
+          <h2>¿Qué problema del mundo te gustaría ayudar a resolver?</h2>
+          <p class="station-copy">Aquí es donde el talento deja de ser solo tuyo y empieza a servirle a alguien más.</p>
+          <button class="dig-btn" data-coord="W 51°">Excavar aquí</button>
+          <p class="coord-reveal" hidden>Coordenada hallada: <span>W 51°</span></p>
+        </div>
+      </section>
+
+    </div>
+
+    <svg class="trail-path" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 30 Q 250 0, 500 30 T 1000 30" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/>
+    </svg>
+
+    <div class="progress-wrap" aria-hidden="true">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <p class="progress-label"><span id="progressCount">0</span> de 4 coordenadas encontradas</p>
+    </div>
+
+  </main>
+
+  <section class="treasure-section" id="cofre">
+    <div class="chest-wrap">
+      <svg class="chest" id="chestSvg" viewBox="0 0 200 160" aria-hidden="true">
+        <rect x="20" y="80" width="160" height="60" rx="6" fill="#5c3a22" stroke="#2e2018" stroke-width="3"/>
+        <rect x="20" y="92" width="160" height="6" fill="#2e2018" opacity="0.5"/>
+        <path id="chestLid" d="M20 80 Q20 30 100 30 Q180 30 180 80 Z" fill="#6b4527" stroke="#2e2018" stroke-width="3"/>
+        <rect x="90" y="70" width="20" height="22" rx="3" fill="#c9962c" stroke="#2e2018" stroke-width="2"/>
+        <g id="sparkles" opacity="0">
+          <circle cx="60" cy="50" r="4" fill="#1b8a8a"/>
+          <circle cx="140" cy="45" r="3" fill="#c9962c"/>
+          <circle cx="100" cy="20" r="5" fill="#1b8a8a"/>
+          <circle cx="130" cy="60" r="2.5" fill="#c9962c"/>
+        </g>
+      </svg>
+      <p class="chest-status" id="chestStatus">Encuentra las 4 coordenadas para abrir el cofre</p>
+      <div class="treasure-message" id="treasureMessage" hidden>
+        <h2>El tesoro nunca fue una carrera.</h2>
+        <p>Era esto: tus pasiones, tus talentos, tu curiosidad y el problema que quieres resolver. Esa combinación — no un título — es tu mapa.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Inspirado en una conversación sobre orientación vocacional. Construido como herramienta para tutores y orientadores.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
