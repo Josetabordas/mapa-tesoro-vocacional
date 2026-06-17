@@ -21,13 +21,6 @@ La página presenta 4 "estaciones" con las preguntas:
 
 Al hacer clic en "Excavar aquí" en cada estación se revela una coordenada. Al encontrar las 4, el cofre del tesoro se abre y aparece el mensaje final.
 
-## Cómo subirlo a GitHub Pages
-
-1. Crea un repositorio nuevo en GitHub (por ejemplo `mapa-tesoro-vocacional`).
-2. Sube estos tres archivos a la raíz del repositorio (o a una carpeta `docs/` si prefieres).
-3. En el repositorio: **Settings → Pages → Source**, selecciona la rama `main` y la carpeta raíz (`/`).
-4. Guarda. En un par de minutos tu página estará disponible en:
-   `https://tu-usuario.github.io/mapa-tesoro-vocacional/`
 
 ## Personalización
 
