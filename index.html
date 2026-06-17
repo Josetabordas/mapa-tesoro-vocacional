@@ -14,8 +14,8 @@
     <div class="hero-inner">
       <p class="eyebrow">No es una pregunta de carrera. Es una búsqueda de tesoro.</p>
       <h1 class="hero-title">¿Qué quieres ser<br>cuando grande?</h1>
-      <p class="hero-sub">La mayoría no lo sabe. Y está bien. <br>Existe una pregunta mejor — son cuatro, en realidad — escondidas a lo largo de este mapa.</p>
-      <a href="#mapa" class="cta">Desenrollar el mapa ↓</a>
+      <p class="hero-sub">La mayoría no lo sabe. Y está bien. <br>Existe una pregunta mejor — son cuatro estaciones, en realidad — escondidas a lo largo de este mapa.</p>
+      <a href="#mapa" class="cta">Empezar el viaje ↓</a>
     </div>
     <svg class="hero-compass" viewBox="0 0 120 120" aria-hidden="true">
       <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -26,74 +26,167 @@
   </header>
 
   <main id="mapa" class="map-section">
-    <p class="map-intro">
-      El tesoro no es una carrera específica, sino el descubrimiento de tus talentos e intereses.
-      Visita las cuatro estaciones. Cada respuesta correcta te entrega una coordenada.
-    </p>
 
-    <div class="trail" id="trail">
-
-      <section class="station" data-station="1">
-        <div class="station-marker">
-          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
-        </div>
-        <div class="station-card">
-          <p class="station-label">Estación I — Lo que enciende</p>
-          <h2>¿Qué te apasiona?</h2>
-          <p class="station-copy">No lo que "deberías" disfrutar. Lo que te hace perder la noción del tiempo cuando lo haces.</p>
-          <button class="dig-btn" data-coord="N 14°">Excavar aquí</button>
-          <p class="coord-reveal" hidden>Coordenada hallada: <span>N 14°</span></p>
-        </div>
-      </section>
-
-      <section class="station" data-station="2">
-        <div class="station-marker">
-          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
-        </div>
-        <div class="station-card">
-          <p class="station-label">Estación II — Tu ventaja natural</p>
-          <h2>¿Qué haces bien?</h2>
-          <p class="station-copy">Las cosas que te salen con una facilidad que a otros les cuesta. Ahí hay una pista.</p>
-          <button class="dig-btn" data-coord="E 27°">Excavar aquí</button>
-          <p class="coord-reveal" hidden>Coordenada hallada: <span>E 27°</span></p>
-        </div>
-      </section>
-
-      <section class="station" data-station="3">
-        <div class="station-marker">
-          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
-        </div>
-        <div class="station-card">
-          <p class="station-label">Estación III — El horizonte</p>
-          <h2>¿Qué te gustaría aprender?</h2>
-          <p class="station-copy">No lo que ya sabes hacer. Lo que te llama la atención aunque todavía no domines.</p>
-          <button class="dig-btn" data-coord="N 09°">Excavar aquí</button>
-          <p class="coord-reveal" hidden>Coordenada hallada: <span>N 09°</span></p>
-        </div>
-      </section>
-
-      <section class="station" data-station="4">
-        <div class="station-marker">
-          <svg viewBox="0 0 60 60" class="pin"><path d="M30 4C16 4 6 14 6 27c0 18 24 29 24 29s24-11 24-29C54 14 44 4 30 4z" fill="currentColor"/><circle cx="30" cy="26" r="9" fill="var(--parchment)"/></svg>
-        </div>
-        <div class="station-card">
-          <p class="station-label">Estación IV — El propósito</p>
-          <h2>¿Qué problema del mundo te gustaría ayudar a resolver?</h2>
-          <p class="station-copy">Aquí es donde el talento deja de ser solo tuyo y empieza a servirle a alguien más.</p>
-          <button class="dig-btn" data-coord="W 51°">Excavar aquí</button>
-          <p class="coord-reveal" hidden>Coordenada hallada: <span>W 51°</span></p>
-        </div>
-      </section>
-
+    <!-- Mapa general: muestra las 4 coordenadas como hitos, una activa a la vez -->
+    <div class="route-overview" id="routeOverview" aria-hidden="true">
+      <div class="route-node" data-node="1"><span class="route-coord">N 14°</span></div>
+      <div class="route-line"></div>
+      <div class="route-node" data-node="2"><span class="route-coord">E 27°</span></div>
+      <div class="route-line"></div>
+      <div class="route-node" data-node="3"><span class="route-coord">N 09°</span></div>
+      <div class="route-line"></div>
+      <div class="route-node" data-node="4"><span class="route-coord">W 51°</span></div>
+      <div class="route-line"></div>
+      <div class="route-node" data-node="chest">🗝</div>
     </div>
 
-    <svg class="trail-path" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 30 Q 250 0, 500 30 T 1000 30" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round"/>
-    </svg>
-
-    <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-wrap">
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <p class="progress-label"><span id="progressCount">0</span> de 4 coordenadas encontradas</p>
+      <p class="progress-label"><span id="progressCount">0</span> de 4 coordenadas exploradas</p>
+    </div>
+
+    <!-- Contenedor de la estación activa -->
+    <div class="station-stage" id="stationStage">
+
+      <!-- ESTACIÓN 1 -->
+      <section class="station" data-station="1" data-coord="N 14°" data-label="Estación I — Lo que enciende">
+
+        <div class="q-block" data-q="1">
+          <p class="station-label">Estación I · N 14° — Pregunta 1 de 3</p>
+          <h2>¿Qué te apasiona?</h2>
+          <p class="station-copy">No lo que "deberías" disfrutar. Lo que te hace perder la noción del tiempo.</p>
+          <div class="options">
+            <button class="opt-btn" data-cat="arte">Crear algo: dibujar, escribir, hacer música o videos</button>
+            <button class="opt-btn" data-cat="tecnologia">Entender cómo funcionan las cosas: aparatos, apps, videojuegos</button>
+            <button class="opt-btn" data-cat="social">Estar con personas: escuchar, organizar, ayudar a un grupo</button>
+            <button class="opt-btn" data-cat="naturaleza">Estar al aire libre, con animales, plantas o moverte físicamente</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="2" hidden>
+          <p class="station-label">Estación I · N 14° — Pregunta 2 de 3</p>
+          <h2>Cuando tienes tiempo libre, ¿qué eliges hacer primero?</h2>
+          <div class="options">
+            <button class="opt-btn" data-cat="logica">Resolver un problema, un rompecabezas o un reto de lógica</button>
+            <button class="opt-btn" data-cat="ciencia">Investigar algo que me dio curiosidad, leer o experimentar</button>
+            <button class="opt-btn" data-cat="arte">Hacer algo creativo solo por el gusto de hacerlo</button>
+            <button class="opt-btn" data-cat="social">Hablar o pasar tiempo con otras personas</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="3" hidden>
+          <p class="station-label">Estación I · N 14° — Pregunta 3 de 3 · Reflexión</p>
+          <h2>Describe un momento en el que perdiste la noción del tiempo haciendo algo.</h2>
+          <p class="station-copy">No hay respuesta correcta. Escribe lo primero que recuerdes.</p>
+          <textarea class="reflect-input" data-reflect="1" rows="3" placeholder="Estaba haciendo..."></textarea>
+          <button class="next-btn" data-next>Continuar →</button>
+        </div>
+
+      </section>
+
+      <!-- ESTACIÓN 2 -->
+      <section class="station" data-station="2" data-coord="E 27°" data-label="Estación II — Tu ventaja natural" hidden>
+
+        <div class="q-block" data-q="1">
+          <p class="station-label">Estación II · E 27° — Pregunta 1 de 3</p>
+          <h2>¿Qué haces bien sin mucho esfuerzo?</h2>
+          <p class="station-copy">Lo que a otros les cuesta y a ti te sale natural.</p>
+          <div class="options">
+            <button class="opt-btn" data-cat="logica">Organizar información, números o planes con orden</button>
+            <button class="opt-btn" data-cat="social">Hacer que otros se sientan escuchados o en confianza</button>
+            <button class="opt-btn" data-cat="arte">Imaginar ideas originales o expresarlas visualmente</button>
+            <button class="opt-btn" data-cat="tecnologia">Entender sistemas, herramientas o cómo arreglar algo</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="2" hidden>
+          <p class="station-label">Estación II · E 27° — Pregunta 2 de 3</p>
+          <h2>En un trabajo en equipo, ¿qué rol tomas casi siempre?</h2>
+          <div class="options">
+            <button class="opt-btn" data-cat="social">El que coordina al grupo y cuida que todos participen</button>
+            <button class="opt-btn" data-cat="logica">El que planea los pasos y revisa que todo cuadre</button>
+            <button class="opt-btn" data-cat="arte">El que propone ideas distintas o le da estilo al resultado</button>
+            <button class="opt-btn" data-cat="ciencia">El que investiga y aporta datos antes de decidir</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="3" hidden>
+          <p class="station-label">Estación II · E 27° — Pregunta 3 de 3 · Reflexión</p>
+          <h2>¿Qué te ha dicho alguien que se le hizo fácil para ti, pero difícil para esa persona?</h2>
+          <textarea class="reflect-input" data-reflect="2" rows="3" placeholder="Una vez me dijeron que..."></textarea>
+          <button class="next-btn" data-next>Continuar →</button>
+        </div>
+
+      </section>
+
+      <!-- ESTACIÓN 3 -->
+      <section class="station" data-station="3" data-coord="N 09°" data-label="Estación III — El horizonte" hidden>
+
+        <div class="q-block" data-q="1">
+          <p class="station-label">Estación III · N 09° — Pregunta 1 de 3</p>
+          <h2>¿Qué te gustaría aprender aunque todavía no sepas hacerlo?</h2>
+          <div class="options">
+            <button class="opt-btn" data-cat="tecnologia">Programar, diseñar apps o crear con tecnología</button>
+            <button class="opt-btn" data-cat="ciencia">Cómo funciona el cuerpo, el espacio o la naturaleza</button>
+            <button class="opt-btn" data-cat="negocios">Cómo se crea y dirige un negocio o un proyecto propio</button>
+            <button class="opt-btn" data-cat="arte">Una disciplina artística que nunca he practicado</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="2" hidden>
+          <p class="station-label">Estación III · N 09° — Pregunta 2 de 3</p>
+          <h2>Si pudieras tomar una clase extra este año, ¿cuál elegirías?</h2>
+          <div class="options">
+            <button class="opt-btn" data-cat="ciencia">Biología, química o física aplicada</button>
+            <button class="opt-btn" data-cat="negocios">Economía, finanzas o emprendimiento</button>
+            <button class="opt-btn" data-cat="social">Psicología, ciencias sociales o comunicación</button>
+            <button class="opt-btn" data-cat="tecnologia">Programación o diseño digital</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="3" hidden>
+          <p class="station-label">Estación III · N 09° — Pregunta 3 de 3 · Reflexión</p>
+          <h2>¿Qué tema te genera tanta curiosidad que buscarías un video o artículo sobre él sin que te lo pidan?</h2>
+          <textarea class="reflect-input" data-reflect="3" rows="3" placeholder="Me da curiosidad..."></textarea>
+          <button class="next-btn" data-next>Continuar →</button>
+        </div>
+
+      </section>
+
+      <!-- ESTACIÓN 4 -->
+      <section class="station" data-station="4" data-coord="W 51°" data-label="Estación IV — El propósito" hidden>
+
+        <div class="q-block" data-q="1">
+          <p class="station-label">Estación IV · W 51° — Pregunta 1 de 3</p>
+          <h2>¿Qué problema del mundo te gustaría ayudar a resolver?</h2>
+          <div class="options">
+            <button class="opt-btn" data-cat="naturaleza">Cuidar el medio ambiente o los animales</button>
+            <button class="opt-btn" data-cat="social">Reducir la desigualdad o ayudar a comunidades</button>
+            <button class="opt-btn" data-cat="ciencia">Mejorar la salud o curar enfermedades</button>
+            <button class="opt-btn" data-cat="tecnologia">Resolver problemas con tecnología o innovación</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="2" hidden>
+          <p class="station-label">Estación IV · W 51° — Pregunta 2 de 3</p>
+          <h2>Si tuvieras los recursos para arrancar un proyecto hoy, ¿de qué tipo sería?</h2>
+          <div class="options">
+            <button class="opt-btn" data-cat="negocios">Un negocio o emprendimiento propio</button>
+            <button class="opt-btn" data-cat="social">Una organización o iniciativa para ayudar a otros</button>
+            <button class="opt-btn" data-cat="arte">Un proyecto creativo o cultural</button>
+            <button class="opt-btn" data-cat="naturaleza">Un proyecto relacionado con la naturaleza o sostenibilidad</button>
+          </div>
+        </div>
+
+        <div class="q-block" data-q="3" hidden>
+          <p class="station-label">Estación IV · W 51° — Pregunta 3 de 3 · Reflexión</p>
+          <h2>Imagina que en 10 años resolviste un problema que te importa. ¿Cuál fue?</h2>
+          <textarea class="reflect-input" data-reflect="4" rows="3" placeholder="En 10 años, ayudé a resolver..."></textarea>
+          <button class="next-btn" data-next>Continuar →</button>
+        </div>
+
+      </section>
+
     </div>
 
   </main>
@@ -112,10 +205,21 @@
           <circle cx="130" cy="60" r="2.5" fill="#c9962c"/>
         </g>
       </svg>
-      <p class="chest-status" id="chestStatus">Encuentra las 4 coordenadas para abrir el cofre</p>
+      <p class="chest-status" id="chestStatus">Explora las 4 estaciones para abrir el cofre</p>
+
       <div class="treasure-message" id="treasureMessage" hidden>
-        <h2>El tesoro nunca fue una carrera.</h2>
-        <p>Era esto: tus pasiones, tus talentos, tu curiosidad y el problema que quieres resolver. Esa combinación — no un título — es tu mapa.</p>
+        <p class="treasure-eyebrow">Tu tesoro encontrado</p>
+        <h2 id="profileTitle">Tu perfil de talentos</h2>
+        <p id="profileText" class="profile-text"></p>
+
+        <div class="profile-bars" id="profileBars"></div>
+
+        <details class="reflections-box">
+          <summary>Ver tus reflexiones del viaje</summary>
+          <div id="reflectionsList"></div>
+        </details>
+
+        <button class="restart-btn" id="restartBtn">Empezar el mapa de nuevo</button>
       </div>
     </div>
   </section>
